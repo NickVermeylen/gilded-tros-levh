@@ -1,7 +1,6 @@
 package com.gildedtros.model;
 
 import com.gildedtros.Item;
-import com.gildedtros.domain.model.item.Item;
 
 public final class ItemMother {
 
@@ -17,7 +16,7 @@ public final class ItemMother {
     }
 
     public static Item bDawgKeychain() {
-        return  new Item("B-DAWG Keychain", Integer.MAX_VALUE, 80);
+        return new Item("B-DAWG Keychain", Integer.MAX_VALUE, 80);
     }
 
     public static Item backstagePasses(final int sellIn, final int quality) {
