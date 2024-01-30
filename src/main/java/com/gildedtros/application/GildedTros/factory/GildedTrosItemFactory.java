@@ -1,4 +1,4 @@
-package com.gildedtros.application.item.factory;
+package com.gildedtros.application.GildedTros.factory;
 
 import com.gildedtros.domain.item.Item;
 import com.gildedtros.domain.item.factory.UpdatableItemFactory;

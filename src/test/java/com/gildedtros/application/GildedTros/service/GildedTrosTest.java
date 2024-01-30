@@ -1,4 +1,4 @@
-package com.gildedtros.application.item.service;
+package com.gildedtros.application.GildedTros.service;
 
 import com.gildedtros.domain.item.Item;
 import org.junit.jupiter.api.DisplayName;
