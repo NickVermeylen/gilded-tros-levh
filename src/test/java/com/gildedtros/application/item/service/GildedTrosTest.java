@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.stream.Stream;
 
@@ -120,6 +121,18 @@ class GildedTrosTest {
         app.updateQuality();
 
         assertEquals(qualityToBe, app.items[0].quality);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"Duplicate Code", "Long Methods", "Ugly Variable Names"})
+    @DisplayName("Smelly items degrade in Quality twice as fast as normal items")
+    void backStagePasses(final String smellyItem) {
+        final Item[] items = {new Item(smellyItem, 25, 20)};
+
+        final GildedTros app = new GildedTros(items);
+        app.updateQuality();
+
+        assertEquals(23, app.items[0].quality);
     }
 
     private static Stream<Arguments> provideBackstagePassesWithQualityToBe() {
