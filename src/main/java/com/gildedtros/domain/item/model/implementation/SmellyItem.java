@@ -1,6 +1,6 @@
 package com.gildedtros.domain.item.model.implementation;
 
-import com.gildedtros.Item;
+import com.gildedtros.domain.item.Item;
 
 public class SmellyItem extends DefaultItem{
 
@@ -9,7 +9,7 @@ public class SmellyItem extends DefaultItem{
     }
 
     @Override
-    public void updateItem() {
+    public void updateQuality() {
         decreaseQualityBy(2);
     }
 }

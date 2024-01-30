@@ -1,6 +1,6 @@
 package com.gildedtros.domain.item.model.implementation;
 
-import com.gildedtros.Item;
+import com.gildedtros.domain.item.Item;
 
 public class BackstagePassesItem extends DefaultItem {
 
@@ -9,7 +9,7 @@ public class BackstagePassesItem extends DefaultItem {
     }
 
     @Override
-    public void updateItem() {
+    public void updateQuality() {
         if ( sellInDayIsOver(10) ) {
             increaseQualityBy(1);
         }
@@ -22,6 +22,6 @@ public class BackstagePassesItem extends DefaultItem {
         else if(sellInDayIsOver(-1)){
             setQualityToMinValue();
         }
-        passDay();
+
     }
 }

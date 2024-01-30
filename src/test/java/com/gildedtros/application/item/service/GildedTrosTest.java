@@ -1,6 +1,6 @@
 package com.gildedtros.application.item.service;
 
-import com.gildedtros.Item;
+import com.gildedtros.domain.item.Item;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -110,8 +110,8 @@ class GildedTrosTest {
     @DisplayName(
             "Backstage quality :" +
                     "-increases by 1 when sellIn > 10." +
-                    "-increases by 2 when 5 < sellIn < 10." +
-                    "-increases by 3 when sellIn < 5." +
+                    "-increases by 2 when 5 < sellIn <= 10." +
+                    "-increases by 3 when sellIn <= 5." +
                     "-drops to 0 when sellIn < 0."
     )
     void backStagePasses(final Item backstagePasses, final int qualityToBe) {
@@ -138,8 +138,8 @@ class GildedTrosTest {
     private static Stream<Arguments> provideBackstagePassesWithQualityToBe() {
         return Stream.of(
                 Arguments.of(backstagePasses(25, 20), 21), //increases by 1 when sellIn > 10
-                Arguments.of(backstagePasses(9, 20), 22), //increases by 2 when 5 < sellIn < 10
-                Arguments.of(backstagePasses(4, 20), 23), //increases by 1 when sellIn > 10
+                Arguments.of(backstagePasses(10, 20), 22), //increases by 2 when 5 < sellIn <= 10
+                Arguments.of(backstagePasses(5, 20), 23), //increases by 1 when sellIn > 10
                 Arguments.of(backstagePasses(0, 20), 0) //increases by 1 when sellIn > 10
         );
     }

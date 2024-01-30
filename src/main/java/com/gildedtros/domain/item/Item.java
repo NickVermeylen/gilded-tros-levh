@@ -1,4 +1,4 @@
-package com.gildedtros;
+package com.gildedtros.domain.item;
 
 public class Item {
 

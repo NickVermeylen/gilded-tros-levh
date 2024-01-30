@@ -1,6 +1,6 @@
 package com.gildedtros.domain.item.factory;
 
-import com.gildedtros.Item;
+import com.gildedtros.domain.item.Item;
 import com.gildedtros.domain.item.model.UpdatableItem;
 
 @FunctionalInterface

@@ -1,29 +1,21 @@
 package com.gildedtros.application.item.service;
 
-import com.gildedtros.Item;
+import com.gildedtros.domain.item.Item;
 import com.gildedtros.application.item.factory.GildedTrosItemFactory;
-import com.gildedtros.domain.item.factory.UpdatableItemFactory;
-import com.gildedtros.domain.item.model.UpdatableItem;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+import com.gildedtros.domain.inventory.Inventory;
 
 class GildedTros {
 
     Item[] items;
-    private final List<UpdatableItem> inventory;
+    private final Inventory inventory;
 
     public GildedTros(final Item[] items) {
         this.items = items;
-        final UpdatableItemFactory updatableItemFactory = new GildedTrosItemFactory();
-        inventory = Arrays.stream(items)
-                .map(updatableItemFactory::createGildedTrosItem)
-                .collect(Collectors.toList());
+        inventory = new Inventory(items, new GildedTrosItemFactory());
+
     }
 
     public void updateQuality() {
-        inventory
-                .forEach(UpdatableItem::updateItem);
+        inventory.update();
     }
 }

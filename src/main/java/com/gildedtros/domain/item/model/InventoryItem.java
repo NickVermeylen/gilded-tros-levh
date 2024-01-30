@@ -1,6 +1,6 @@
 package com.gildedtros.domain.item.model;
 
-import com.gildedtros.Item;
+import com.gildedtros.domain.item.Item;
 
 public abstract class InventoryItem implements UpdatableItem {
 
@@ -11,12 +11,20 @@ public abstract class InventoryItem implements UpdatableItem {
         this.item = item;
     }
 
-    public int getMaxQuality(){
-        return MAX_QUALITY;
+    public abstract void updateQuality();
+
+    @Override
+    public void updateItem() {
+        updateQuality();
+        passDay();
     }
 
-    protected void passDay() {
+    private void passDay() {
         item.sellIn--;
+    }
+
+    public int getMaxQuality() {
+        return MAX_QUALITY;
     }
 
     protected void increaseQualityBy(final int value) {
@@ -37,7 +45,7 @@ public abstract class InventoryItem implements UpdatableItem {
         item.quality = 0;
     }
 
-    protected void setQualityToMaxValue( ) {
+    protected void setQualityToMaxValue() {
         item.quality = getMaxQuality();
     }
 
