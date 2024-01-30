@@ -2,11 +2,11 @@ package com.gildedtros.domain.item.model;
 
 import com.gildedtros.Item;
 
-public class EventItem implements UpdatableItem {
+public class BackstagePassesItem implements UpdatableItem {
 
     private final Item item;
 
-    public EventItem(final Item item) {
+    public BackstagePassesItem(final Item item) {
         this.item = item;
     }
 
