@@ -1,4 +1,4 @@
-package com.gildedtros.model;
+package com.gildedtros.domain.item.model;
 
 import com.gildedtros.Item;
 

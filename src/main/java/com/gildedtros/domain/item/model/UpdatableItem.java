@@ -1,4 +1,4 @@
-package com.gildedtros.domain.model;
+package com.gildedtros.domain.item.model;
 
 @FunctionalInterface
 public interface UpdatableItem {

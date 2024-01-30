@@ -1,4 +1,6 @@
-package com.gildedtros;
+package com.gildedtros.application.item;
+
+import com.gildedtros.Item;
 
 class GildedTros {
     private static final String BACKSTAGE_PASSES_FOR_RE_FACTOR = "Backstage passes for Re:Factor";

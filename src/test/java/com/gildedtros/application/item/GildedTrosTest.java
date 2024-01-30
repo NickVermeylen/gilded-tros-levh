@@ -1,5 +1,7 @@
-package com.gildedtros;
+package com.gildedtros.application.item;
 
+import com.gildedtros.Item;
+import com.gildedtros.application.item.GildedTros;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -9,7 +11,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static com.gildedtros.model.ItemMother.*;
+import static com.gildedtros.domain.item.model.ItemMother.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GildedTrosTest {
