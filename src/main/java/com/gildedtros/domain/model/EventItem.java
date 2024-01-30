@@ -2,10 +2,12 @@ package com.gildedtros.domain.model;
 
 import com.gildedtros.Item;
 
-public class EventItem extends Item implements UpdatableItem{
+public class EventItem implements UpdatableItem {
 
-    public EventItem(final String name, final int sellIn, final int quality) {
-        super(name, sellIn, quality);
+    private final Item item;
+
+    public EventItem(final Item item) {
+        this.item = item;
     }
 
     @Override

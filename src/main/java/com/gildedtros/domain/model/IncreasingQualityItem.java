@@ -2,16 +2,16 @@ package com.gildedtros.domain.model;
 
 import com.gildedtros.Item;
 
-public class IncreasingQualityItem extends Item implements UpdatableItem{
+public class IncreasingQualityItem implements UpdatableItem {
 
-    public IncreasingQualityItem(final String name, final int sellIn, final int quality) {
-        super(name, sellIn, quality);
+    private final Item item;
+
+    public IncreasingQualityItem(final Item item) {
+        this.item = item;
     }
 
     @Override
     public void updateItem() {
-        quality++;
-
         //TODO check max
     }
 }

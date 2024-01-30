@@ -2,14 +2,16 @@ package com.gildedtros.domain.model;
 
 import com.gildedtros.Item;
 
-public class DefaultItem extends Item implements UpdatableItem{
+public class DefaultItem implements UpdatableItem {
 
-    public DefaultItem(final String name, final int sellIn, final int quality) {
-        super(name, sellIn, quality);
+    private final Item item;
+
+    public DefaultItem(final Item item) {
+        this.item = item;
     }
 
     @Override
     public void updateItem() {
-        quality--;
+        //TODO implement logic
     }
 }

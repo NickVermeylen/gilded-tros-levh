@@ -2,12 +2,15 @@ package com.gildedtros.domain.model;
 
 import com.gildedtros.Item;
 
-public class LegendaryItem extends Item implements UpdatableItem{
+public class LegendaryItem implements UpdatableItem {
 
     private static final int LEGENDARY_QUALITY = 80;
 
-    public LegendaryItem(final String name) {
-        super(name, Integer.MAX_VALUE, LEGENDARY_QUALITY);
+    private final Item item;
+
+    public LegendaryItem(final Item item) {
+        item.quality = LEGENDARY_QUALITY;
+        this.item = item;
     }
 
     @Override
