@@ -2,7 +2,6 @@ package com.gildedtros.domain.item.model.implementation;
 
 import com.gildedtros.Item;
 import com.gildedtros.domain.item.model.InventoryItem;
-import com.gildedtros.domain.item.model.UpdatableItem;
 
 public class IncreasingQualityItem extends InventoryItem {
 
@@ -12,7 +11,7 @@ public class IncreasingQualityItem extends InventoryItem {
 
     @Override
     public void updateItem() {
-       increaseQualityBy(1);
+        increaseQualityBy(1);
         passDay();
     }
 }

@@ -1,8 +1,6 @@
 package com.gildedtros.application.item.service;
 
 import com.gildedtros.Item;
-import com.gildedtros.application.item.service.GildedTros;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

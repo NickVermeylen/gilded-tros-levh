@@ -1,17 +1,20 @@
 package com.gildedtros.domain.item.model.implementation;
 
 import com.gildedtros.Item;
-import com.gildedtros.domain.item.model.UpdatableItem;
+import com.gildedtros.domain.item.model.InventoryItem;
 
-public class LegendaryItem implements UpdatableItem {
+public class LegendaryItem extends InventoryItem {
 
     private static final int LEGENDARY_QUALITY = 80;
 
-    private final Item item;
-
     public LegendaryItem(final Item item) {
-        item.quality = LEGENDARY_QUALITY;
-        this.item = item;
+        super(item);
+        setQualityToMaxValue();
+    }
+
+    @Override
+    public int getMaxQuality() {
+        return LEGENDARY_QUALITY;
     }
 
     @Override

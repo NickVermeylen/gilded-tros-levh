@@ -11,6 +11,11 @@ public abstract class InventoryItem implements UpdatableItem {
         this.item = item;
     }
 
+    @Override
+    public int getMaxQuality(){
+        return MAX_QUALITY;
+    }
+
     protected void passDay() {
         item.sellIn--;
     }
@@ -31,6 +36,10 @@ public abstract class InventoryItem implements UpdatableItem {
 
     protected void setQualityToMinValue() {
         item.quality = 0;
+    }
+
+    protected void setQualityToMaxValue( ) {
+        item.quality = getMaxQuality();
     }
 
     protected boolean sellInDayIsOver(final int days) {
