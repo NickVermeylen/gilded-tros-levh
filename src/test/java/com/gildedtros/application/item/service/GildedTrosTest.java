@@ -1,7 +1,7 @@
-package com.gildedtros.application.item;
+package com.gildedtros.application.item.service;
 
 import com.gildedtros.Item;
-import com.gildedtros.application.item.GildedTros;
+import com.gildedtros.application.item.service.GildedTros;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -84,9 +84,7 @@ class GildedTrosTest {
     }
 
     @Test
-    @Disabled("TODO")
     @DisplayName("'B-DAWG Keychain' always has quality 80.")
-    //TODO
     void BDawgKeychainQualityAlways80() {
         final Item[] items = {new Item("B-DAWG Keychain", Integer.MAX_VALUE, 50)};
 

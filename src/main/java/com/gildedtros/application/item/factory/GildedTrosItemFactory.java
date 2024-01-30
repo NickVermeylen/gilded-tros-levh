@@ -2,6 +2,10 @@ package com.gildedtros.application.item.factory;
 
 import com.gildedtros.Item;
 import com.gildedtros.domain.item.model.*;
+import com.gildedtros.domain.item.model.implementation.BackstagePassesItem;
+import com.gildedtros.domain.item.model.implementation.DefaultItem;
+import com.gildedtros.domain.item.model.implementation.IncreasingQualityItem;
+import com.gildedtros.domain.item.model.implementation.LegendaryItem;
 
 public final class GildedTrosItemFactory implements com.gildedtros.domain.item.factory.UpdatableItemFactory {
 

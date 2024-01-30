@@ -1,6 +1,7 @@
-package com.gildedtros.domain.item.model;
+package com.gildedtros.domain.item.model.implementation;
 
 import com.gildedtros.Item;
+import com.gildedtros.domain.item.model.UpdatableItem;
 
 public class LegendaryItem implements UpdatableItem {
 
