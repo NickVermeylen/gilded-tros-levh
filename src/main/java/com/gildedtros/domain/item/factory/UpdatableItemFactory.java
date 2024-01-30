@@ -6,5 +6,5 @@ import com.gildedtros.domain.item.model.UpdatableItem;
 @FunctionalInterface
 public interface UpdatableItemFactory {
 
-    UpdatableItem createItem(Item item);
+    UpdatableItem createGildedTrosItem(Item item);
 }

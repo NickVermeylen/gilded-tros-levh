@@ -18,7 +18,7 @@ class GildedTros {
         this.items = items;
         final UpdatableItemFactory updatableItemFactory = new GildedTrosItemFactory();
         inventory = Arrays.stream(items)
-                .map(updatableItemFactory::createItem)
+                .map(updatableItemFactory::createGildedTrosItem)
                 .collect(Collectors.toList());
     }
 

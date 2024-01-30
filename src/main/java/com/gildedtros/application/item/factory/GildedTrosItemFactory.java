@@ -1,29 +1,54 @@
 package com.gildedtros.application.item.factory;
 
 import com.gildedtros.Item;
-import com.gildedtros.domain.item.model.*;
+import com.gildedtros.domain.item.factory.UpdatableItemFactory;
+import com.gildedtros.domain.item.model.UpdatableItem;
 import com.gildedtros.domain.item.model.implementation.BackstagePassesItem;
 import com.gildedtros.domain.item.model.implementation.DefaultItem;
 import com.gildedtros.domain.item.model.implementation.IncreasingQualityItem;
 import com.gildedtros.domain.item.model.implementation.LegendaryItem;
 
-//TODO improve
-public final class GildedTrosItemFactory implements com.gildedtros.domain.item.factory.UpdatableItemFactory {
+import java.util.HashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
+
+public final class GildedTrosItemFactory implements UpdatableItemFactory {
+
+    private final HashMap<Predicate<String>,
+            Function<Item, UpdatableItem>> itemTypes = new HashMap<>();
+    private static final String B_DAWG_KEYCHAIN = "B-DAWG Keychain";
+    private static final String GOOD_WINE = "Good Wine";
+    private static final String BACKSTAGE_PASSES = "Backstage passes";
 
     public GildedTrosItemFactory() {
+        itemTypes.put(equalsString(B_DAWG_KEYCHAIN), LegendaryItem::new);
+        itemTypes.put(equalsString(GOOD_WINE), IncreasingQualityItem::new);
+        itemTypes.put(startsWith(BACKSTAGE_PASSES), BackstagePassesItem::new);
     }
 
-    @Override
-    public UpdatableItem createItem(final Item item) {
-        if ("B-DAWG Keychain".equals(item.name)) {
-            return new LegendaryItem(item);
-        } else if ("Good Wine".equals(item.name)) {
-            return new IncreasingQualityItem(item);
-        } else if (item.name.startsWith("Backstage passes")) {
-            return new BackstagePassesItem(item);
-        } else {
-            return new DefaultItem(item);
-        }
+    private Function<Item, UpdatableItem> createItem = DefaultItem::new;
 
+    @Override
+    public UpdatableItem createGildedTrosItem(final Item item) {
+        itemTypes.forEach(
+                (key, entry) -> {
+                    if (isNonDefaultItem(item, key)) {
+                        createItem = entry;
+                    }
+                }
+        );
+        return createItem.apply(item);
+    }
+
+    private static boolean isNonDefaultItem(final Item item, final Predicate<String> key) {
+        return key.test(item.name);
+    }
+
+    private Predicate<String> equalsString(final String value) {
+        return s -> s.equals(value);
+    }
+
+    private Predicate<String> startsWith(final String value) {
+        return s -> s.startsWith(value);
     }
 }
