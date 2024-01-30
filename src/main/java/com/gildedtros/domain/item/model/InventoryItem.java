@@ -11,7 +11,6 @@ public abstract class InventoryItem implements UpdatableItem {
         this.item = item;
     }
 
-    @Override
     public int getMaxQuality(){
         return MAX_QUALITY;
     }

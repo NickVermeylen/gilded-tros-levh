@@ -10,18 +10,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 class GildedTros {
-    private static final String BACKSTAGE_PASSES_FOR_RE_FACTOR = "Backstage passes for Re:Factor";
-    private static final String BACKSTAGE_PASSES_FOR_HAXX = "Backstage passes for HAXX";
-    private static final String GOOD_WINE = "Good Wine";
-    private static final String B_DAWG_KEYCHAIN = "B-DAWG Keychain";
-    private static final int MAX_QUALITY = 50;
 
     Item[] items;
     private final List<UpdatableItem> inventory;
-    private final UpdatableItemFactory updatableItemFactory = new GildedTrosItemFactory();
 
     public GildedTros(final Item[] items) {
         this.items = items;
+        final UpdatableItemFactory updatableItemFactory = new GildedTrosItemFactory();
         inventory = Arrays.stream(items)
                 .map(updatableItemFactory::createItem)
                 .collect(Collectors.toList());
