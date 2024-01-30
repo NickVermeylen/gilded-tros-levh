@@ -3,12 +3,11 @@ package com.gildedtros.application.item.factory;
 import com.gildedtros.Item;
 import com.gildedtros.domain.item.factory.UpdatableItemFactory;
 import com.gildedtros.domain.item.model.UpdatableItem;
-import com.gildedtros.domain.item.model.implementation.BackstagePassesItem;
-import com.gildedtros.domain.item.model.implementation.DefaultItem;
-import com.gildedtros.domain.item.model.implementation.IncreasingQualityItem;
-import com.gildedtros.domain.item.model.implementation.LegendaryItem;
+import com.gildedtros.domain.item.model.implementation.*;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -19,11 +18,13 @@ public final class GildedTrosItemFactory implements UpdatableItemFactory {
     private static final String B_DAWG_KEYCHAIN = "B-DAWG Keychain";
     private static final String GOOD_WINE = "Good Wine";
     private static final String BACKSTAGE_PASSES = "Backstage passes";
+    private static final List<String> SMELLY_ITEMS = Arrays.asList("Duplicate Code", "Long Methods", "Ugly Variable Names");
 
     public GildedTrosItemFactory() {
-        itemTypes.put(equalsString(B_DAWG_KEYCHAIN), LegendaryItem::new);
-        itemTypes.put(equalsString(GOOD_WINE), IncreasingQualityItem::new);
+        itemTypes.put(isEqualTo(B_DAWG_KEYCHAIN), LegendaryItem::new);
+        itemTypes.put(isEqualTo(GOOD_WINE), IncreasingQualityItem::new);
         itemTypes.put(startsWith(BACKSTAGE_PASSES), BackstagePassesItem::new);
+        itemTypes.put(SMELLY_ITEMS::contains, SmellyItem::new);
     }
 
     private Function<Item, UpdatableItem> createItem = DefaultItem::new;
@@ -44,7 +45,7 @@ public final class GildedTrosItemFactory implements UpdatableItemFactory {
         return key.test(item.name);
     }
 
-    private Predicate<String> equalsString(final String value) {
+    private Predicate<String> isEqualTo(final String value) {
         return s -> s.equals(value);
     }
 

@@ -132,7 +132,7 @@ class GildedTrosTest {
         final GildedTros app = new GildedTros(items);
         app.updateQuality();
 
-        assertEquals(23, app.items[0].quality);
+        assertEquals(18, app.items[0].quality);
     }
 
     private static Stream<Arguments> provideBackstagePassesWithQualityToBe() {
