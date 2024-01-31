@@ -11,9 +11,9 @@ public class DefaultItem extends InventoryItem {
 
     @Override
     public void updateQuality() {
-        if(sellInDayIsOver(0)){
+        if (sellInDayIsOver(0)) {
             decreaseQualityBy(1);
-        }else{
+        } else {
             decreaseQualityBy(2);
         }
     }

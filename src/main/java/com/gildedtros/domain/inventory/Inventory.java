@@ -12,13 +12,13 @@ public class Inventory {
 
     private final List<UpdatableItem> inventoryItems;
 
-    public Inventory(final Item[] items,final UpdatableItemFactory updatableItemFactory ) {
+    public Inventory(final Item[] items, final UpdatableItemFactory updatableItemFactory) {
         inventoryItems = Arrays.stream(items)
                 .map(updatableItemFactory::createGildedTrosItem)
                 .collect(Collectors.toList());
     }
 
-    public void update(){
+    public void update() {
         inventoryItems.forEach(UpdatableItem::updateItem);
     }
 }

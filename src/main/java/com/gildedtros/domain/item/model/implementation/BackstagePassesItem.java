@@ -10,16 +10,13 @@ public class BackstagePassesItem extends DefaultItem {
 
     @Override
     public void updateQuality() {
-        if ( sellInDayIsOver(10) ) {
+        if (sellInDayIsOver(10)) {
             increaseQualityBy(1);
-        }
-        else if (sellInDayIsOver(5) ) {
+        } else if (sellInDayIsOver(5)) {
             increaseQualityBy(2);
-        }
-        else if (sellInDayIsOver(0) ) {
+        } else if (sellInDayIsOver(0)) {
             increaseQualityBy(3);
-        }
-        else if(sellInDayIsOver(-1)){
+        } else if (sellInDayIsOver(-1)) {
             setQualityToMinValue();
         }
 
