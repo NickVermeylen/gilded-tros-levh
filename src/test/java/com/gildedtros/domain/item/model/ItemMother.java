@@ -1,7 +1,5 @@
 package com.gildedtros.domain.item.model;
 
-import com.gildedtros.domain.item.Item;
-
 public final class ItemMother {
 
     private ItemMother() {

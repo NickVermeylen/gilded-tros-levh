@@ -1,6 +1,6 @@
 package com.gildedtros.application.gildedtros.service;
 
-import com.gildedtros.domain.item.Item;
+import com.gildedtros.domain.item.model.Item;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

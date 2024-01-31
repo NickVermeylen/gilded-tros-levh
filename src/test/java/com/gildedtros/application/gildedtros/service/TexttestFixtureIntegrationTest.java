@@ -1,6 +1,6 @@
 package com.gildedtros.application.gildedtros.service;
 
-import com.gildedtros.domain.item.Item;
+import com.gildedtros.domain.item.model.Item;
 
 public final class TexttestFixtureIntegrationTest {
     private TexttestFixtureIntegrationTest() {

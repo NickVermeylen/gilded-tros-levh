@@ -1,7 +1,5 @@
 package com.gildedtros.domain.item.model;
 
-import com.gildedtros.domain.item.Item;
-
 public abstract class InventoryItem implements UpdatableItem {
 
     private static final int MAX_QUALITY = 50;

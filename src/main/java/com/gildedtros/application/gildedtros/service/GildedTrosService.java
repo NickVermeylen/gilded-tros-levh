@@ -2,7 +2,7 @@ package com.gildedtros.application.gildedtros.service;
 
 import com.gildedtros.application.gildedtros.factory.GildedTrosItemFactory;
 import com.gildedtros.domain.inventory.Inventory;
-import com.gildedtros.domain.item.Item;
+import com.gildedtros.domain.item.model.Item;
 
 class GildedTrosService {
 

@@ -1,6 +1,6 @@
 package com.gildedtros.domain.inventory;
 
-import com.gildedtros.domain.item.Item;
+import com.gildedtros.domain.item.model.Item;
 import com.gildedtros.domain.item.factory.UpdatableItemFactory;
 import com.gildedtros.domain.item.model.UpdatableItem;
 
