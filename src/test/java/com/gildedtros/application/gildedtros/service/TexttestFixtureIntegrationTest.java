@@ -1,4 +1,4 @@
-package com.gildedtros.application.GildedTros.service;
+package com.gildedtros.application.gildedtros.service;
 
 import com.gildedtros.domain.item.Item;
 

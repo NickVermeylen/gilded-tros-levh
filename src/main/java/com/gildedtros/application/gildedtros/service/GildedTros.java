@@ -1,7 +1,7 @@
-package com.gildedtros.application.GildedTros.service;
+package com.gildedtros.application.gildedtros.service;
 
 import com.gildedtros.domain.item.Item;
-import com.gildedtros.application.GildedTros.factory.GildedTrosItemFactory;
+import com.gildedtros.application.gildedtros.factory.GildedTrosItemFactory;
 import com.gildedtros.domain.inventory.Inventory;
 
 class GildedTros {
@@ -11,7 +11,7 @@ class GildedTros {
 
     public GildedTros(final Item[] items) {
         this.items = items;
-        inventory = new Inventory(items, new GildedTrosItemFactory());
+        inventory = new Inventory(this.items, new GildedTrosItemFactory());
 
     }
 
