@@ -4,12 +4,12 @@ import com.gildedtros.application.gildedtros.factory.GildedTrosItemFactory;
 import com.gildedtros.domain.inventory.Inventory;
 import com.gildedtros.domain.item.Item;
 
-class GildedTros {
+class GildedTrosService {
 
     Item[] items;
     private final Inventory inventory;
 
-    public GildedTros(final Item[] items) {
+    public GildedTrosService(final Item[] items) {
         this.items = items;
         inventory = new Inventory(this.items, new GildedTrosItemFactory());
 

@@ -11,16 +11,17 @@ import java.util.function.Predicate;
 
 public final class GildedTrosItemFactory implements UpdatableItemFactory {
 
-    private final HashMap<Predicate<String>,
-            Function<Item, UpdatableItem>> itemTypesWithChecks = new HashMap<>();
     private static final String B_DAWG_KEYCHAIN = "B-DAWG Keychain";
     private static final String GOOD_WINE = "Good Wine";
     private static final String BACKSTAGE_PASSES = "Backstage passes";
     private static final List<String> SMELLY_ITEMS = Arrays.asList("Duplicate Code", "Long Methods", "Ugly Variable Names");
 
+    private final HashMap<Predicate<String>,
+            Function<Item, UpdatableItem>> itemTypesWithChecks = new HashMap<>();
+
     public GildedTrosItemFactory() {
-        itemTypesWithChecks.put(isEqualTo(B_DAWG_KEYCHAIN), LegendaryItem::new);
-        itemTypesWithChecks.put(isEqualTo(GOOD_WINE), IncreasingQualityItem::new);
+        itemTypesWithChecks.put(B_DAWG_KEYCHAIN::equals, LegendaryItem::new);
+        itemTypesWithChecks.put(GOOD_WINE::equals, IncreasingQualityItem::new);
         itemTypesWithChecks.put(startsWith(BACKSTAGE_PASSES), BackstagePassesItem::new);
         itemTypesWithChecks.put(SMELLY_ITEMS::contains, SmellyItem::new);
     }
@@ -41,11 +42,6 @@ public final class GildedTrosItemFactory implements UpdatableItemFactory {
             }
         }
         return Optional.empty();
-    }
-
-
-    private Predicate<String> isEqualTo(final String value) {
-        return s -> s.equals(value);
     }
 
     private Predicate<String> startsWith(final String value) {

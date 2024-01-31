@@ -23,7 +23,7 @@ public final class TexttestFixtureIntegrationTest {
                 new Item("Long Methods", 3, 6),
                 new Item("Ugly Variable Names", 3, 6) };
 
-        final GildedTros app = new GildedTros(items);
+        final GildedTrosService app = new GildedTrosService(items);
 
         int days = 2;
         if (args.length > 0) {

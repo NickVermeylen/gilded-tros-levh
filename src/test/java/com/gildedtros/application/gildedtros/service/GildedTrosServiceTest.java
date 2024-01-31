@@ -13,13 +13,13 @@ import java.util.stream.Stream;
 import static com.gildedtros.domain.item.model.ItemMother.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class GildedTrosTest {
+class GildedTrosServiceTest {
 
     @Test
     @DisplayName("Adding items will not change the properties.")
     void addItemWithoutUpdate() {
         final Item[] items = {defaultItem(25, 25)};
-        final GildedTros app = new GildedTros(items);
+        final GildedTrosService app = new GildedTrosService(items);
 
         assertEquals(25, app.items[0].sellIn);
         assertEquals(25, app.items[0].quality);
@@ -30,7 +30,7 @@ class GildedTrosTest {
     void addItemAndUpdate() {
         final Item[] items = {defaultItem(1, 50)};
 
-        final GildedTros app = new GildedTros(items);
+        final GildedTrosService app = new GildedTrosService(items);
         app.updateQuality();
 
         assertEquals(0, app.items[0].sellIn);
@@ -42,7 +42,7 @@ class GildedTrosTest {
     void addItemAndUpdatePastSellIn() {
         final Item[] items = {defaultItem(0, 50)};
 
-        final GildedTros app = new GildedTros(items);
+        final GildedTrosService app = new GildedTrosService(items);
         app.updateQuality();
 
         assertEquals(-1, app.items[0].sellIn);
@@ -54,7 +54,7 @@ class GildedTrosTest {
     void qualityIsNeverNegative() {
         final Item[] items = {defaultItem(1, 0)};
 
-        final GildedTros app = new GildedTros(items);
+        final GildedTrosService app = new GildedTrosService(items);
         app.updateQuality();
 
         assertEquals(0, app.items[0].quality);
@@ -65,7 +65,7 @@ class GildedTrosTest {
     void goodWineIncreasesInQuality() {
         final Item[] items = {goodWine(1, 0)};
 
-        final GildedTros app = new GildedTros(items);
+        final GildedTrosService app = new GildedTrosService(items);
         app.updateQuality();
 
         assertEquals(1, app.items[0].quality);
@@ -76,7 +76,7 @@ class GildedTrosTest {
     void QualityIsMax50() {
         final Item[] items = {goodWine(1, 50)};
 
-        final GildedTros app = new GildedTros(items);
+        final GildedTrosService app = new GildedTrosService(items);
         app.updateQuality();
 
         assertEquals(50, app.items[0].quality);
@@ -87,7 +87,7 @@ class GildedTrosTest {
     void BDawgKeychainQualityAlways80() {
         final Item[] items = {new Item("B-DAWG Keychain", Integer.MAX_VALUE, 50)};
 
-        final GildedTros app = new GildedTros(items);
+        final GildedTrosService app = new GildedTrosService(items);
         app.updateQuality();
 
         assertEquals(80, app.items[0].quality);
@@ -98,7 +98,7 @@ class GildedTrosTest {
     void BDawgKeychainPropsNeverChange() {
         final Item[] items = {bDawgKeychain()};
 
-        final GildedTros app = new GildedTros(items);
+        final GildedTrosService app = new GildedTrosService(items);
         app.updateQuality();
 
         assertEquals(Integer.MAX_VALUE, app.items[0].sellIn);
@@ -117,7 +117,7 @@ class GildedTrosTest {
     void backStagePasses(final Item backstagePasses, final int qualityToBe) {
         final Item[] items = {backstagePasses};
 
-        final GildedTros app = new GildedTros(items);
+        final GildedTrosService app = new GildedTrosService(items);
         app.updateQuality();
 
         assertEquals(qualityToBe, app.items[0].quality);
@@ -129,7 +129,7 @@ class GildedTrosTest {
     void backStagePasses(final String smellyItem) {
         final Item[] items = {new Item(smellyItem, 25, 20)};
 
-        final GildedTros app = new GildedTros(items);
+        final GildedTrosService app = new GildedTrosService(items);
         app.updateQuality();
 
         assertEquals(18, app.items[0].quality);
