@@ -1,15 +1,14 @@
-package com.gildedtros.application.gildedtros.service;
+package com.gildedtros;
 
+
+import com.gildedtros.application.gildedtros.service.GildedTrosService;
 import com.gildedtros.domain.item.model.Item;
 
-public final class TexttestFixtureIntegrationTest {
-    private TexttestFixtureIntegrationTest() {
-    }
-
-    public static void main(final String[] args) {
+public class TexttestFixture {
+    public static String testDays(Integer days) {
         System.out.println("AXXES CODE KATA - GILDED TROS");
 
-        final Item[] items = {
+        Item[] items = new Item[] {
                 new Item("Ring of Cleansening Code", 10, 20),
                 new Item("Good Wine", 2, 0),
                 new Item("Elixir of the SOLID", 5, 7),
@@ -23,22 +22,22 @@ public final class TexttestFixtureIntegrationTest {
                 new Item("Long Methods", 3, 6),
                 new Item("Ugly Variable Names", 3, 6) };
 
-        final GildedTrosService app = new GildedTrosService(items);
+        GildedTrosService app = new GildedTrosService(items);
 
-        int days = 2;
-        if (args.length > 0) {
-            days = Integer.parseInt(args[0]) + 1;
-        }
-
+        final StringBuilder result = new StringBuilder();
         for (int i = 0; i < days; i++) {
-            System.out.println("-------- day " + i + " --------");
-            System.out.println("name, sellIn, quality");
-            for (final Item item : items) {
-                System.out.println(item);
+            result.append("-------- day " + i + " -------- \n");
+            result.append("name, sellIn, quality \n");
+            for (Item item : items) {
+                result.append(item);
+                result.append("\n");
             }
-            System.out.println();
+            result.append("\n");
             app.updateQuality();
         }
+
+        return result.toString();
     }
 
 }
+
